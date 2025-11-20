@@ -1,25 +1,31 @@
 {
+  "accountAssociation": {
+    "header": "Get from farcaster-dev tool",
+    "payload": "",
+    "signature": ""
+  },
+{
   "miniapp": {
     "version": "1",
-    "subtitle": "NFT Minting Dapp",
-    "description": "Launch your own minting Dapp",
-    "name": "Farcaster Minting DApp",
-    "iconUrl": "https://usdozf7pplhxfvrl.public.blob.vercel-storage.com/thumbnail_435ad18f-0094-47ab-8a7a-881688673066-0ANtobR3Md4YKZEBdCwjb5So8cvvFu",
-    "homeUrl": "https://farcaster-minting-dapp.vercel.app/",
-    "imageUrl": "https://usdozf7pplhxfvrl.public.blob.vercel-storage.com/thumbnail_435ad18f-0094-47ab-8a7a-881688673066-0ANtobR3Md4YKZEBdCwjb5So8cvvFu",
+    "subtitle": "Your shorten description",
+    "description": "Your app description",
+    "name": "Your app name",
+    "iconUrl": "Your app icon url",
+    "homeUrl": "Your app url",
+    "imageUrl": "Your image url",
     "buttonTitle": "Open App",
-    "splashImageUrl": "https://usdozf7pplhxfvrl.public.blob.vercel-storage.com/farcaster/splash_images/splash_image1.svg",
+    "splashImageUrl": "Your splash image url",
     "splashBackgroundColor": "#ffffff",
     "tags": [
       "base"
     ],
     "primaryCategory": "utility",
-    "ogTitle": "Farcaster Minting Dapp",
-    "ogImageUrl": "https://farcaster-minting-dapp.vercel.app/mint"
+    "ogTitle": "Your app OG title",
+    "ogImageUrl": "Your OG url-can same like app url"
   },
   "baseBuilder": {
     "allowedAddresses": [
-      ""
+      "Your Base address"
     ]
   }
 }
