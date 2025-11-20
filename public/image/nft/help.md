@@ -1,1 +1,1 @@
-Place NFT preview image[ here](./nft) with name 1.png 2.png etc
+Place NFT preview image[ here](./) with name 1.png 2.png etc
