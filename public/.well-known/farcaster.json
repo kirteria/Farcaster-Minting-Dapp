@@ -1,1 +1,25 @@
-
+{
+  "miniapp": {
+    "version": "1",
+    "subtitle": "NFT Minting Dapp",
+    "description": "Launch your own minting Dapp",
+    "name": "Farcaster Minting DApp",
+    "iconUrl": "https://usdozf7pplhxfvrl.public.blob.vercel-storage.com/thumbnail_435ad18f-0094-47ab-8a7a-881688673066-0ANtobR3Md4YKZEBdCwjb5So8cvvFu",
+    "homeUrl": "https://farcaster-minting-dapp.vercel.app/",
+    "imageUrl": "https://usdozf7pplhxfvrl.public.blob.vercel-storage.com/thumbnail_435ad18f-0094-47ab-8a7a-881688673066-0ANtobR3Md4YKZEBdCwjb5So8cvvFu",
+    "buttonTitle": "Open App",
+    "splashImageUrl": "https://usdozf7pplhxfvrl.public.blob.vercel-storage.com/farcaster/splash_images/splash_image1.svg",
+    "splashBackgroundColor": "#ffffff",
+    "tags": [
+      "base"
+    ],
+    "primaryCategory": "utility",
+    "ogTitle": "Farcaster Minting Dapp",
+    "ogImageUrl": "https://farcaster-minting-dapp.vercel.app/mint"
+  },
+  "baseBuilder": {
+    "allowedAddresses": [
+      ""
+    ]
+  }
+}
