@@ -38,9 +38,6 @@ export function useMint(): MintResult {
     try {
       setError(null)
 
-      // -----------------------------
-      // READ TOTAL SUPPLY BEFORE MINT
-      // -----------------------------
       const totalSupplyBefore = Number(
         await readContract(wagmiConfig, {
           address: CONTRACT_CONFIG.address,
@@ -63,9 +60,6 @@ export function useMint(): MintResult {
       })
       setTransactionHash(txHash)
 
-      // -----------------------------
-      // WAIT UNTIL totalSupply UPDATES
-      // -----------------------------
       const receiptTotalSupply = await new Promise<number>((resolve) => {
         const interval = setInterval(async () => {
           const now = Number(
@@ -82,9 +76,6 @@ export function useMint(): MintResult {
         }, 1000)
       })
 
-      // -----------------------------
-      // BUILD MINTED IDS
-      // -----------------------------
       const arr: number[] = []
       for (let i = totalSupplyBefore + 1; i <= receiptTotalSupply; i++) {
         arr.push(i)
