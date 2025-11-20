@@ -20,7 +20,7 @@ Supports:
 
 ---
 
-# ⚙️ Environment Variables (`.env.local`)
+## ⚙️ Update (`.env.local`)
 
 Create `.env.local` in your project root:
 
@@ -49,9 +49,9 @@ NEXT_PUBLIC_OPENSEA_URL=https://opensea.io
 
 ---
 
-# 🔄 Switching Between Base & Base Sepolia
+## 🔄 Switching Between Base & Base Sepolia
 
-### `wagmi.ts` :
+### `wagmi.ts` 
 
 Default (Base Sepolia):
 
@@ -90,7 +90,7 @@ export const wagmiConfig = createConfig({
 
 ---
 
-# 🧩 Update `layout.tsx` Metadata
+## 🧩 Update `layout.tsx` Metadata
 
 ```ts
 export const metadata: Metadata = {
@@ -118,7 +118,7 @@ export const metadata: Metadata = {
 
 ---
 
-# 📄 Update `farcaster.json`
+## 📄 Update `farcaster.json`
 
 ```
 {
@@ -155,7 +155,7 @@ export const metadata: Metadata = {
 
 ---
 
-# ▶️ Run Locally
+## ▶️ Run Locally
 
 ```
 npm install
@@ -170,7 +170,7 @@ http://localhost:3000
 
 ---
 
-# 📤 Deploy to Vercel
+## 📤 Deploy to Vercel
 
 1. Push project to GitHub  
 2. Import into Vercel  
@@ -179,3 +179,10 @@ http://localhost:3000
 5. Copy deployed URL → update your Farcaster metadata 
 
 ---
+
+## 🧪 Beta Notice
+
+This app is still in **beta / experimental stage** and will continue improving.
+
+Follow me on Farcaster
+👉 https://farcaster.xyz/weak
