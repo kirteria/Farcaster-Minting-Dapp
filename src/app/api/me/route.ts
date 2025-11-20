@@ -18,7 +18,7 @@ async function resolveUser(fid: number): Promise<UserData> {
       {  
         headers: {  
           accept: 'application/json',  
-          'x-api-key': process.env.NEYNAR_API_KEY ?? 'NEYNAR_FROG_FM',  
+          'x-api-key': process.env.NEYNAR_API_KEY ?? 'OPTIONAL',  
         },  
       }  
     )  
