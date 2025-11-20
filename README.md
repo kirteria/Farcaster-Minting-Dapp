@@ -1,4 +1,4 @@
-# 🚀 Farcaster Minting Dapp
+## 🚀 Farcaster Minting Dapp
 
 A simple NFT minting dApp designed for **Farcaster Miniapps / Frames**, allowing users to mint NFTs directly inside Warpcast or any Farcaster client.
 
@@ -49,7 +49,7 @@ NEXT_PUBLIC_OPENSEA_URL=https://opensea.io
 
 ---
 
-## 🔄 Switching Between Base & Base Sepolia
+## 🔄 Switching testnet & mainnet
 
 ### `wagmi.ts` 
 
