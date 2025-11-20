@@ -17,18 +17,17 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Farcaster Minting Dapp",
-  description: "Launch your NFT collection",
-  other: { "fc:frame": JSON.stringify({"version":"next","imageUrl":"https://usdozf7pplhxfvrl.public.blob.vercel-storage.com/thumbnail_435ad18f-0094-47ab-8a7a-881688673066-0ANtobR3Md4YKZEBdCwjb5So8cvvFu","button":{"title":"Open App","action":{"type":"launch_frame","name":"Farcaster Minting DApp","url":"https://farcaster-minting-dapp.vercel.app","splashImageUrl":"https://usdozf7pplhxfvrl.public.blob.vercel-storage.com/farcaster/splash_images/splash_image1.svg","splashBackgroundColor":"#ffffff"}}}) }
+  title: "Your app name",
+  description: "Your app description",
+  other: { "fc:frame": JSON.stringify({"version":"next","imageUrl":"https://your-image-url","button":{"title":"Open App","action":{"type":"launch_frame","name":"Your app name","url":"https://your-app-url","splashImageUrl":"https://your-splash-image-url","splashBackgroundColor":"#ffffff"}}}) }
 };
 
-// Root layout component - handles cookies and wraps app with providers
 export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Get request ID from cookies for tracking
+  
   const cookieStore = await cookies();
   const requestId = cookieStore.get("x-request-id")?.value;
 
