@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useAccount } from 'wagmi'
 import { Button } from '@/components/ui/button'
 import { Progress } from '@/components/ui/progress'
@@ -13,6 +13,7 @@ import { sdk } from '@farcaster/miniapp-sdk'
 export default function MintPage() {
   const [quantity, setQuantity] = useState(1)
   const [status, setStatus] = useState<'idle' | 'pending' | 'confirming' | 'success' | 'failed'>('idle')
+  const [isInFarcaster, setIsInFarcaster] = useState<boolean | null>(null) // null = not checked yet
 
   const { address, isConnected } = useAccount()
 
@@ -35,6 +36,16 @@ export default function MintPage() {
   const progressPercentage = (totalSupply / maxSupply) * 100
   const formatEth = (v: number) => parseFloat(v.toFixed(7)).toString()
   const reset = () => setTimeout(() => setStatus('idle'), 1000)
+
+  useEffect(() => {
+    sdk.isInMiniApp()
+      .then(inApp => setIsInFarcaster(inApp))
+      .catch(() => setIsInFarcaster(false))
+  }, [])
+
+  if (isInFarcaster === false) {
+    return <h1 className="text-center mt-40 text-3xl font-bold text-red-500">404 | Page Not Found</h1>
+  }
 
   const handleMint = async () => {
     if (!isConnected || !mintPrice) return
@@ -94,6 +105,8 @@ export default function MintPage() {
   const xUrl = process.env.NEXT_PUBLIC_X_URL
   const farcasterUrl = process.env.NEXT_PUBLIC_FARCASTER_URL
   const openseaUrl = process.env.NEXT_PUBLIC_OPENSEA_URL
+
+  if (isInFarcaster === null) return null
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-blue-50 to-blue-100 flex flex-col items-center pt-10 px-4">
