@@ -50,7 +50,7 @@ export default function HomePage() {
 
         <Button
           onClick={handleOpenApp}
-          className="px-6 py-5 text-base sm:text-lg rounded-2xl shadow-lg w-full"
+          className="px-6 py-5 text-base sm:text-lg rounded-full shadow-lg w-full"
           style={{ backgroundColor: '#3B82F6', border: '1px solid #60A5FA', color: '#FFFFFF' }}
         >
           Farcaster
