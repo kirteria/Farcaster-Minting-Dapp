@@ -161,7 +161,7 @@ export default function MintPage() {
       <Button
         onClick={handleMint}
         disabled={disabled}
-        className="w-full max-w-md bg-blue-500 hover:bg-blue-600 text-white h-15 text-xl font-semibold rounded-2x1 shadow-xl disabled:opacity-50"
+        className="w-full max-w-md bg-blue-500 hover:bg-blue-600 text-white h-15 text-xl font-semibold rounded-full shadow-xl disabled:opacity-50"
       >
         {getButtonText()}
       </Button>
