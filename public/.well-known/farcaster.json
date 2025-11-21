@@ -11,7 +11,7 @@
     "description": "Your app description",
     "name": "Your app name",
     "iconUrl": "Your app icon url",
-    "homeUrl": "Your app url",
+    "homeUrl": "https://farcaster-minting-dapp.vercel.app",
     "imageUrl": "Your image url",
     "buttonTitle": "Open App",
     "splashImageUrl": "Your splash image url",
