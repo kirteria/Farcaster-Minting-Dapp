@@ -43,20 +43,20 @@ export default function HomePage() {
           <h1 className="text-2xl sm:text-3xl font-bold" style={{ color: '#FFFFFF' }}>
             {nftName}
           </h1>
-          <p className="text-sm sm:text-base" style={{ color: '#1E3A8A' }}>
+          <p className="text-sm sm:text-base" style={{ color: '#FFFFFF' }}>
             Farcaster client required
           </p>
         </div>
 
         <Button
           onClick={handleOpenApp}
-          className="px-6 py-5 text-base sm:text-lg rounded-xl shadow-lg w-full"
+          className="px-6 py-5 text-base sm:text-lg rounded-2xl shadow-lg w-full"
           style={{ backgroundColor: '#3B82F6', border: '1px solid #60A5FA', color: '#FFFFFF' }}
         >
           Farcaster
         </Button>
 
-        <p className="text-xs sm:text-sm" style={{ color: '#1E3A8A' }}>
+        <p className="text-xs sm:text-sm" style={{ color: '#FFFFFF' }}>
           Open this mini app inside Farcaster or Base app.
         </p>
       </div>
