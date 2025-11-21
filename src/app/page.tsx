@@ -30,29 +30,33 @@ export default function HomePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-blue-50 to-blue-100 flex items-center justify-center p-4">
+    <div
+      className="min-h-screen flex items-center justify-center p-4"
+      style={{ background: 'linear-gradient(to bottom, #3B82F6, #F0F9FF)' }}
+    >
       <div className="max-w-sm w-full flex flex-col items-center text-center space-y-4">
         <div className="w-30 h-30 rounded-2xl overflow-hidden shadow-lg">
           <img src="/favicon.ico" alt="Logo" className="w-full h-full object-cover" />
         </div>
 
         <div className="space-y-1">
-          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
+          <h1 className="text-2xl sm:text-3xl font-bold" style={{ color: '#FFFFFF' }}>
             {nftName}
           </h1>
-          <p className="text-sm sm:text-base text-gray-600">
+          <p className="text-sm sm:text-base" style={{ color: '#1E3A8A' }}>
             Farcaster client required
           </p>
         </div>
 
         <Button
           onClick={handleOpenApp}
-          className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-5 text-base sm:text-lg rounded-xl shadow-lg w-full"
+          className="px-6 py-5 text-base sm:text-lg rounded-xl shadow-lg w-full"
+          style={{ backgroundColor: '#3B82F6', border: '1px solid #60A5FA', color: '#FFFFFF' }}
         >
           Farcaster
         </Button>
 
-        <p className="text-xs sm:text-sm text-gray-500">
+        <p className="text-xs sm:text-sm" style={{ color: '#1E3A8A' }}>
           Open this mini app inside Farcaster or Base app.
         </p>
       </div>
