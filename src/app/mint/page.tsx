@@ -115,9 +115,9 @@ export default function MintPage() {
       style={{ background: 'linear-gradient(to bottom, #3B82F6, #F0F9FF)' }}
     >
       <div className="fixed top-6 right-4 flex gap-3 z-50">
-        {xUrl && <a href={xUrl} target="_blank"><img src="/x.png" className="w-10 h-10 object-contain" /></a>}
-        {farcasterUrl && <a href={farcasterUrl} target="_blank"><img src="/farcaster.png" className="w-10 h-10 object-contain" /></a>}
-        {openseaUrl && <a href={openseaUrl} target="_blank"><img src="/opensea.png" className="w-10 h-10 object-contain" /></a>}
+        {xUrl && <a href={xUrl} target="_blank"><img src="/x.png" className="w-8 h-8 object-contain" /></a>}
+        {farcasterUrl && <a href={farcasterUrl} target="_blank"><img src="/farcaster.png" className="w-8 h-8 object-contain" /></a>}
+        {openseaUrl && <a href={openseaUrl} target="_blank"><img src="/opensea.png" className="w-8 h-8 object-contain" /></a>}
       </div>
 
       <div className="w-full max-w-md mx-auto mb-4 mt-16">
@@ -133,7 +133,7 @@ export default function MintPage() {
       </div>
 
       {!loading && mintPrice && (
-        <p className="text-3xl font-bold text-center mb-3 text-white">
+        <p className="text-2xl font-bold text-center mb-3 text-white">
           {formatEth(Number(mintPrice) * quantity)} ETH
         </p>
       )}
