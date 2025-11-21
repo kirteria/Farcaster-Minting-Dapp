@@ -110,23 +110,14 @@ export default function MintPage() {
   const openseaUrl = process.env.NEXT_PUBLIC_OPENSEA_URL
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-blue-50 to-blue-100 flex flex-col items-center pt-10 px-4">
+    <div
+      className="min-h-screen flex flex-col items-center pt-10 px-4"
+      style={{ background: 'linear-gradient(to bottom, #3B82F6, #F0F9FF)' }}
+    >
       <div className="fixed top-6 right-4 flex gap-3 z-50">
-        {xUrl && (
-          <a href={xUrl} target="_blank" className="w-10 h-10 bg-blue-500 hover:bg-blue-600 rounded-full flex items-center justify-center shadow-md p-2">
-            <img src="/x.png" className="w-full h-full object-contain" />
-          </a>
-        )}
-        {farcasterUrl && (
-          <a href={farcasterUrl} target="_blank" className="w-10 h-10 bg-blue-500 hover:bg-blue-600 rounded-full flex items-center justify-center shadow-md p-2">
-            <img src="/farcaster.png" className="w-full h-full object-contain" />
-          </a>
-        )}
-        {openseaUrl && (
-          <a href={openseaUrl} target="_blank" className="w-10 h-10 bg-blue-500 hover:bg-blue-600 rounded-full flex items-center justify-center shadow-md p-2">
-            <img src="/opensea.png" className="w-full h-full object-contain" />
-          </a>
-        )}
+        {xUrl && <a href={xUrl} target="_blank"><img src="/x.png" className="w-10 h-10 object-contain" /></a>}
+        {farcasterUrl && <a href={farcasterUrl} target="_blank"><img src="/farcaster.png" className="w-10 h-10 object-contain" /></a>}
+        {openseaUrl && <a href={openseaUrl} target="_blank"><img src="/opensea.png" className="w-10 h-10 object-contain" /></a>}
       </div>
 
       <div className="w-full max-w-md mx-auto mb-4 mt-16">
@@ -135,14 +126,14 @@ export default function MintPage() {
 
       <div className="w-full max-w-md mx-auto mb-3">
         <div className="flex justify-between text-sm mb-1">
-          <span className="text-gray-700">Minted</span>
-          <span className="font-semibold">{loading ? '...' : `${totalSupply}/${maxSupply}`}</span>
+          <span className="font-bold text-white">Minted</span>
+          <span className="font-semibold text-white">{loading ? '...' : `${totalSupply}/${maxSupply}`}</span>
         </div>
         <Progress value={progressPercentage} className="h-2 rounded-full" />
       </div>
 
       {!loading && mintPrice && (
-        <p className="text-3xl font-bold text-center mb-3">
+        <p className="text-3xl font-bold text-center mb-3 text-white">
           {formatEth(Number(mintPrice) * quantity)} ETH
         </p>
       )}
@@ -155,8 +146,8 @@ export default function MintPage() {
         >
           <Minus className="w-4 h-4" />
         </Button>
-        <div className="w-16 h-10 bg-white bg-opacity-60 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg">
-          <span className="text-2xl font-bold text-gray-700">{quantity}</span>
+        <div className="w-16 h-10 bg-white bg-opacity-20 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg">
+          <span className="text-2xl font-bold text-white">{quantity}</span>
         </div>
         <Button
           onClick={() => quantity < maxQuantity && setQuantity(quantity + 1)}
@@ -170,7 +161,7 @@ export default function MintPage() {
       <Button
         onClick={handleMint}
         disabled={disabled}
-        className="w-full max-w-md bg-blue-500 hover:bg-blue-600 text-white h-15 text-xl font-semibold rounded-xl shadow-xl disabled:opacity-50"
+        className="w-full max-w-md bg-blue-500 hover:bg-blue-600 text-white h-15 text-xl font-semibold rounded-2x1 shadow-xl disabled:opacity-50"
       >
         {getButtonText()}
       </Button>
