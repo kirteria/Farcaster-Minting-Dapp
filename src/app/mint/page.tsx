@@ -133,7 +133,7 @@ export default function MintPage() {
       </div>
 
       {!loading && mintPrice && (
-        <p className="text-2xl font-bold text-center mb-3 text-white">
+        <p className="text-3xl font-bold text-center mb-3 text-white">
           {formatEth(Number(mintPrice) * quantity)} ETH
         </p>
       )}
