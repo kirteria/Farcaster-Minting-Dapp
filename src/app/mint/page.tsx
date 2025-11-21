@@ -9,11 +9,12 @@ import { useContractData } from '@/hooks/useContractData'
 import { useMint } from '@/hooks/useMint'
 import { NFTImageSlider } from '@/components/NFTImageSlider'
 import { sdk } from '@farcaster/miniapp-sdk'
+import { notFound } from 'next/navigation'
 
 export default function MintPage() {
   const [quantity, setQuantity] = useState(1)
   const [status, setStatus] = useState<'idle' | 'pending' | 'confirming' | 'success' | 'failed'>('idle')
-  const [isInFarcaster, setIsInFarcaster] = useState<boolean | null>(null) // null = not checked yet
+  const [isInFarcaster, setIsInFarcaster] = useState<boolean | null>(null)
 
   const { address, isConnected } = useAccount()
 
@@ -44,8 +45,10 @@ export default function MintPage() {
   }, [])
 
   if (isInFarcaster === false) {
-    return <h1 className="text-center mt-40 text-3xl font-bold text-red-500">404 | Page Not Found</h1>
+    notFound()
   }
+
+  if (isInFarcaster === null) return null
 
   const handleMint = async () => {
     if (!isConnected || !mintPrice) return
@@ -106,14 +109,24 @@ export default function MintPage() {
   const farcasterUrl = process.env.NEXT_PUBLIC_FARCASTER_URL
   const openseaUrl = process.env.NEXT_PUBLIC_OPENSEA_URL
 
-  if (isInFarcaster === null) return null
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-blue-50 to-blue-100 flex flex-col items-center pt-10 px-4">
       <div className="fixed top-6 right-4 flex gap-3 z-50">
-        {xUrl && <a href={xUrl} target="_blank" className="w-10 h-10 bg-blue-500 hover:bg-blue-600 rounded-full flex items-center justify-center shadow-md p-2"><img src="/x.png" className="w-full h-full object-contain" /></a>}
-        {farcasterUrl && <a href={farcasterUrl} target="_blank" className="w-10 h-10 bg-blue-500 hover:bg-blue-600 rounded-full flex items-center justify-center shadow-md p-2"><img src="/farcaster.png" className="w-full h-full object-contain" /></a>}
-        {openseaUrl && <a href={openseaUrl} target="_blank" className="w-10 h-10 bg-blue-500 hover:bg-blue-600 rounded-full flex items-center justify-center shadow-md p-2"><img src="/opensea.png" className="w-full h-full object-contain" /></a>}
+        {xUrl && (
+          <a href={xUrl} target="_blank" className="w-10 h-10 bg-blue-500 hover:bg-blue-600 rounded-full flex items-center justify-center shadow-md p-2">
+            <img src="/x.png" className="w-full h-full object-contain" />
+          </a>
+        )}
+        {farcasterUrl && (
+          <a href={farcasterUrl} target="_blank" className="w-10 h-10 bg-blue-500 hover:bg-blue-600 rounded-full flex items-center justify-center shadow-md p-2">
+            <img src="/farcaster.png" className="w-full h-full object-contain" />
+          </a>
+        )}
+        {openseaUrl && (
+          <a href={openseaUrl} target="_blank" className="w-10 h-10 bg-blue-500 hover:bg-blue-600 rounded-full flex items-center justify-center shadow-md p-2">
+            <img src="/opensea.png" className="w-full h-full object-contain" />
+          </a>
+        )}
       </div>
 
       <div className="w-full max-w-md mx-auto mb-4 mt-16">
@@ -135,12 +148,30 @@ export default function MintPage() {
       )}
 
       <div className="flex items-center justify-center gap-3 mb-4">
-        <Button onClick={() => quantity > 1 && setQuantity(quantity - 1)} disabled={quantity <= 1} className="bg-blue-500 hover:bg-blue-600 text-white w-10 h-10 rounded-full shadow-lg disabled:opacity-50"><Minus className="w-4 h-4" /></Button>
-        <div className="w-16 h-10 bg-white bg-opacity-60 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg"><span className="text-2xl font-bold text-gray-700">{quantity}</span></div>
-        <Button onClick={() => quantity < maxQuantity && setQuantity(quantity + 1)} disabled={quantity >= maxQuantity} className="bg-blue-500 hover:bg-blue-600 text-white w-10 h-10 rounded-full shadow-lg disabled:opacity-50"><Plus className="w-4 h-4" /></Button>
+        <Button
+          onClick={() => quantity > 1 && setQuantity(quantity - 1)}
+          disabled={quantity <= 1}
+          className="bg-blue-500 hover:bg-blue-600 text-white w-10 h-10 rounded-full shadow-lg disabled:opacity-50"
+        >
+          <Minus className="w-4 h-4" />
+        </Button>
+        <div className="w-16 h-10 bg-white bg-opacity-60 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg">
+          <span className="text-2xl font-bold text-gray-700">{quantity}</span>
+        </div>
+        <Button
+          onClick={() => quantity < maxQuantity && setQuantity(quantity + 1)}
+          disabled={quantity >= maxQuantity}
+          className="bg-blue-500 hover:bg-blue-600 text-white w-10 h-10 rounded-full shadow-lg disabled:opacity-50"
+        >
+          <Plus className="w-4 h-4" />
+        </Button>
       </div>
 
-      <Button onClick={handleMint} disabled={disabled} className="w-full max-w-md bg-blue-500 hover:bg-blue-600 text-white h-15 text-xl font-semibold rounded-xl shadow-xl disabled:opacity-50">
+      <Button
+        onClick={handleMint}
+        disabled={disabled}
+        className="w-full max-w-md bg-blue-500 hover:bg-blue-600 text-white h-15 text-xl font-semibold rounded-xl shadow-xl disabled:opacity-50"
+      >
         {getButtonText()}
       </Button>
     </div>
