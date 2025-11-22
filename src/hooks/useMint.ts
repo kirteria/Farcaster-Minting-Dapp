@@ -48,9 +48,6 @@ export function useMint(): MintResult {
 
       const totalValue = parseEther((Number(mintPrice) * quantity).toString())
 
-      // -----------------------------
-      // MINT
-      // -----------------------------
       const txHash: string = await writeContractAsync({
         address: CONTRACT_CONFIG.address,
         abi: CONTRACT_CONFIG.abi,
