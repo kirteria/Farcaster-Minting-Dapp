@@ -19,7 +19,7 @@ interface ContractData {
 export function useContractData(userAddress?: string): ContractData {
   const [data, setData] = useState<Omit<ContractData, 'refetch'>>({
     mintPrice: '0',
-    maxMintPerAddress: 5,
+    maxMintPerAddress: 0,
     totalSupply: 0,
     maxSupply: 1000,
     mintingEnabled: false,
