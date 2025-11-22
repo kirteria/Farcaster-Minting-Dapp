@@ -57,7 +57,7 @@ export default function HomePage() {
         </Button>
 
         <p className="text-xs sm:text-sm" style={{ color: '#FFFFFF' }}>
-          Open this mini app inside Farcaster or other Farcaster client
+          You need farcaster client to access this mini app
         </p>
       </div>
     </div>
