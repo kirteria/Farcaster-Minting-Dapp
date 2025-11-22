@@ -53,7 +53,7 @@ export default function HomePage() {
           className="px-6 py-5 text-base sm:text-lg rounded-full shadow-lg w-full"
           style={{ backgroundColor: '#3B82F6', border: '1px solid #60A5FA', color: '#FFFFFF' }}
         >
-          Farcaster
+          Visit Farcaster
         </Button>
 
         <p className="text-xs sm:text-sm" style={{ color: '#FFFFFF' }}>
