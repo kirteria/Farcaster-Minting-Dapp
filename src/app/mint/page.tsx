@@ -69,7 +69,7 @@ export default function MintPage() {
       const cid = process.env.NEXT_PUBLIC_NFT_CID!
       const appUrl = process.env.NEXT_PUBLIC_APP_URL!
       const collectionName = process.env.NEXT_PUBLIC_NFT_NAME!
-      const nftImageUrl = `https://ipfs.io/ipfs/${cid}/${lastTokenId}.png`
+      const nftImageUrl = `${process.env.NEXT_PUBLIC_APP_URL}/api/nft/${lastTokenId}`
 
       await sdk.actions.composeCast({
         text: `Just minted ${collectionName} #${lastTokenId}! 🔥`,
