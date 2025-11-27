@@ -6,10 +6,8 @@ import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 import {ReentrancyGuard} from "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 import {Strings} from "@openzeppelin/contracts/utils/Strings.sol";
 
-
 contract Base is ERC721, Ownable, ReentrancyGuard {
-    uint256 private constant MAX_SUPPLY = 1000;
-    uint256 private constant MAX_NAME_LENGTH = 50;
+    uint256 private constant MAX_SUPPLY = 10000;
 
     uint256 public immutable maxMintPerAddress;
 
@@ -18,10 +16,7 @@ contract Base is ERC721, Ownable, ReentrancyGuard {
     uint256 public mintPrice;
     bool public mintingEnabled;
 
-    mapping(uint256 => string) public tokenNames;
-
     event Minted(address indexed to, uint256 indexed tokenId);
-    event TokenNamed(uint256 indexed tokenId, string name, address indexed owner);
     event MintingEnabled();
     event MintingPaused();
 
@@ -98,18 +93,6 @@ contract Base is ERC721, Ownable, ReentrancyGuard {
                 ".json"
             )
         );
-    }
-
-    function setName(uint256 tokenId, string memory name) public {
-        require(ownerOf(tokenId) == msg.sender, "Only token owner can set name");
-        require(bytes(name).length <= MAX_NAME_LENGTH, "Name too long");
-        tokenNames[tokenId] = name;
-        emit TokenNamed(tokenId, name, msg.sender);
-    }
-
-    function getName(uint256 tokenId) public view returns (string memory) {
-        _requireOwned(tokenId);
-        return tokenNames[tokenId];
     }
 
     function supportsInterface(bytes4 interfaceId)
